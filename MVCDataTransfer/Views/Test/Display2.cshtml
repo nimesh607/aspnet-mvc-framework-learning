@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display2</title>
+</head>
+<body>
+    <table border="1" align="center" width="15%">
+        <caption>Product Details</caption>
+        <tr><td>Id:</td><td>@Session["Id"]</td></tr>
+        <tr><td>Name:</td><td>@Session["Name"]</td></tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                @{
+                    double Price = Convert.ToDouble(Session["Price"]);
+                    Price = Price + (Price * 10 / 100); @Price }
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

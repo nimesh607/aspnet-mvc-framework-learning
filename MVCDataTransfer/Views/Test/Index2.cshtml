@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+</head>
+<body>
+    @{
+        HttpCookie cookie = Request.Cookies["ProductCookie"];
+        int Id = int.Parse(cookie["Id"]);
+        string Name = cookie["Name"];
+        double Price = double.Parse(cookie["Price"]); }
+    <table border="1" align="center" width="20%">
+        <caption>Product Details</caption>
+        <tr><td>Id:</td><td>@Id</td></tr>
+        <tr><td>Name:</td><td>@Name</td></tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                @{
+                    Price = Price + Price * 10 / 100; @Price }
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
