@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCDataTransfer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,7 @@ namespace MVCDataTransfer.Controllers
     public class TestController : Controller
     {
         // GET: Test
-        public ActionResult Index()
+        public ActionResult Index1()
         {
             return View();
         }
@@ -29,6 +30,11 @@ namespace MVCDataTransfer.Controllers
         public ViewResult Display2()
         {
             return View();
+        }
+
+        public ViewResult Index4(Product product)
+        {
+            return View(product);
         }
     }
 }

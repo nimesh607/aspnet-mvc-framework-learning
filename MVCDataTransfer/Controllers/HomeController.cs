@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCDataTransfer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -74,9 +75,12 @@ namespace MVCDataTransfer.Controllers
             return RedirectToAction("Index1", "Test");
         }
 
+        //Cookies:Cookies are small pieces of data that are stored on the client-side (i.e., in the user's web browser) and are sent to the server with each request. Cookies are commonly used to store user preferences, session information, and other data that needs to persist across multiple requests.
+        //two types of cookies: session cookies and persistent cookies.
+        //Session cookies are temporary cookies that are deleted when the user closes their web browser. Persistent cookies, on the other hand, are stored on the user's device for a specified period of time and remain even after the browser is closed.
         public ViewResult Index6(int? Id, string Name, double? Price)
         {
-            HttpCookie cookie = new HttpCookie("ProductCookie");
+            HttpCookie cookie = new HttpCookie("ProductCookie");//Create an instance of HttpCookie class
             cookie["Id"] = Id.ToString();
             cookie["Name"] = Name;
             cookie["Price"] = Price.ToString();
@@ -108,6 +112,31 @@ namespace MVCDataTransfer.Controllers
             Session["Price"] = price;
             return RedirectToAction("Index3", "Test");
         }
+
+        /*Anonymous Types: An anonymous type is a type that is defined without a name. Anonymous types are useful when you need to create a simple object to hold a set of related values, but you don't want to create a separate class for it.
+        ->The implicitly typed variables - “var” or “dynamic” is used to hold the reference of anonymous types
+        ->By using these anonymous types also, we can transfer values from an Action method to its corresponding View or an Action method to another Action method that is present in the same Controller or other Controller.
+        */
+        public ViewResult Index13(int? id, string name, double? price)
+        {
+            var Product = new { Id = id, Name = name, Price = price };
+            return View(Product);
+        }
+
+        //Here we are using a strongly typed Model class “Product” to transfer data from an Action method to its corresponding View or an Action method to another Action method that is present in the same Controller or other Controller.
+        public ViewResult Index14(int? id, string name, double? price)
+        {
+            Product product = new Product { Id = id, Name = name, Price = price };
+            return View(product);
+        }
+
+        //instead of passing individual parameters, we are passing the entire Model class “Product” as a parameter to the Action method “Index15” of “HomeController” from the Action method “Index4” of “TestController”.
+        public RedirectToRouteResult Index15(Product product)
+        {
+            return RedirectToAction("Index4", "Test", product);
+        }
+
+      
 
     }
 }

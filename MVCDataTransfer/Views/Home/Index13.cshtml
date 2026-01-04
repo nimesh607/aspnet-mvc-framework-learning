@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index13</title>
+</head>
+<body>
+    <div>
+        In this case while accessing values from an anonymous type in the View, we need to first capture those values from ViewData i.e., even if we did not explicitly store the values in ViewData, they are implicitly stored into ViewData and accessible under the View.
+        While accessing the values from ViewData we require calling “Eval” method on ViewData, because the values are stored in the form of an “instance or object (Complex type)” and under that instance or object we have all the 3 values which should be separated first and then consumed.
+    </div>
+        @{
+            int? Id = Convert.ToInt32(ViewData.Eval("Id"));
+            string Name = ViewData.Eval("Name").ToString();
+            double? Price = ViewData.Eval("Price") as double?;
+        }
+    <table border="1" align="center" width="15%">
+        <caption>Product Details</caption>
+        <tr><td>Id:</td><td>@Id</td></tr>
+        <tr><td>Name:</td><td>@Name</td></tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                @{
+                    Price = Price + (Price * 10 / 100);
+                    @Price
+                    }
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

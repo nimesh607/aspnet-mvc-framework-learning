@@ -99,18 +99,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index1.cshtml" />
     <Content Include="Views\Home\Display1.cshtml" />
     <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Home\Index4.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Test\Index1.cshtml" />
     <Content Include="Views\Test\Display1.cshtml" />
     <Content Include="Views\Home\Index6.cshtml" />
     <Content Include="Views\Home\Index7.cshtml" />
@@ -118,6 +118,10 @@
     <Content Include="Views\Home\Index9.cshtml" />
     <Content Include="Views\Test\Index3.cshtml" />
     <Content Include="Views\Test\Display2.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index13.cshtml" />
+    <Content Include="Views\Home\Index14.cshtml" />
+    <Content Include="Views\Test\Index4.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -127,7 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
