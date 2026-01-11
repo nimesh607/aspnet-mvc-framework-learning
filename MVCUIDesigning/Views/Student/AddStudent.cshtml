@@ -1,0 +1,45 @@
+﻿@model MVCUIDesigning.Models.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddStudent</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.Label("Student Id:")<br />
+           @* @Html.TextBox("Sid") <br />//here we need to give same name as model property
+            //so that model binding will work properly*@
+            @Html.TextBoxFor(S => S.Sid) <br />//here S represents student model.it is strongly typed way.It is preferred because it will give compile time checking.
+            @Html.Label("Name: ") <br />
+            @Html.TextBoxFor(S=>S.Name) <br />
+            @Html.Label("Student Class: ")
+            List<int> li = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            SelectList items = new SelectList(li);
+            @Html.DropDownList("Class", items, "--Select Class--")
+            <br />
+            @Html.Label("Gender: ")
+            @Html.RadioButton("Gender", "Male") @:Male
+            @Html.RadioButton("Gender", "Female") @:Female
+            <br />
+            @Html.Label("Fees: ")
+            <br />
+            @Html.TextBox("Fees")
+            <br />
+            @Html.Label("Address: ")
+            <br />
+            @Html.TextArea("Address", "", 3, 22, new { })
+            <br /><br />
+            <input type="submit" value="Save" />
+            <input type="reset" value="Reset" />
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@model MVCUIDesigning.Models.Student
+
+
+<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Display StudentSt";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div>
+        <ul>
+            @Html.DisplayNameFor(S => S.Sid)//to get label name of property
+            @Html.DisplayFor(S => S.Sid)//to get value of property
+
+            <li>@Html.DisplayNameFor(S => S.Name): @Html.DisplayFor(S => S.Name)</li>
+
+            <li>@Html.DisplayNameFor(S => S.Class): @Html.DisplayFor(S => S.Class)</li>
+
+            <li>@Html.DisplayNameFor(S => S.Gender): @Html.DisplayFor(S => S.Gender)</li>
+
+            <li>@Html.DisplayNameFor(S => S.Fees): @Html.DisplayFor(S => S.Fees)</li>
+
+            <li>@Html.DisplayNameFor(S => S.Address): @Html.DisplayFor(S => S.Address)</li>
+        </ul>
+    </div>
+</body>
+</html>

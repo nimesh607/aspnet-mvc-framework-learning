@@ -1,0 +1,50 @@
+﻿@model MVCUIDesigning.Models.Student
+
+@{
+    ViewData["Title"] = "Display StudentSt";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <h2>Student Form</h2>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.Label("Student Id: ");
+            <br />
+            @Html.TextBoxFor(S => S.Sid);
+            <br />
+            @Html.Label("Student Name: ");
+            <br />
+            @Html.TextBoxFor(S => S.Name);
+            <br />
+            @Html.Label("Student Class: ");
+            List<int> li = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            SelectList items = new SelectList(li);
+           
+            @Html.DropDownListFor(S => S.Class, items, "-Select Class-");
+            <br />
+            @Html.Label("Student Gender: ");<br />
+            @Html.RadioButtonFor(S => S.Gender, "Male") @:Male<br />
+            @Html.RadioButtonFor(S => S.Gender, "Female") @:Female<br />
+            @Html.RadioButtonFor(S => S.Gender, "Transgender") @:Transgender<br />
+            <br />
+            @Html.Label("Annual Fees: ");
+            <br />
+            @Html.TextBoxFor(S => S.Fees);
+            <br />
+            @Html.Label("Student Address: ");
+            <br />
+            @Html.TextAreaFor(S => S.Address, 3, 21, new { });
+            <br /><br />
+            <input type="submit" value="Save" />
+            <input type="reset" value="Reset" />
+        }
+    </div>
+</body>
+</html>

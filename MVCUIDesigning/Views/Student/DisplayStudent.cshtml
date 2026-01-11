@@ -1,0 +1,27 @@
+﻿@model  MVCUIDesigning.Models.Student
+    
+
+<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Display Student";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title> 
+</head>
+<body>
+    <div>
+        <h4>Student Details</h4>
+        <ul>
+            <li>Student Id: @Model.Sid</li>
+            <li>Student Name: @Model.Name</li>
+            <li>Student Class: @Model.Class</li>
+            <li>Student Gender: @Model.Gender</li>
+            <li>Student Fees: @Model.Fees</li>
+            <li>Student Address: @Model.Address</li>
+        </ul>
+    </div>
+</body>
+</html>
