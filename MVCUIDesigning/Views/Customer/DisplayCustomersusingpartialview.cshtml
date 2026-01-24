@@ -1,0 +1,22 @@
+﻿@using MVCUIDesigning.Models
+@model IEnumerable<Customer>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayCustomersusingpartialview</title>
+</head>
+<body>
+    <div>
+        @foreach (var customer in Model)
+        {
+            @Html.Partial("_Customer", customer)
+        }
+    </div>
+</body>
+</html>

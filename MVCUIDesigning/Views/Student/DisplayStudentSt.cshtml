@@ -11,6 +11,8 @@
     <title>@ViewData["Title"]</title>
 </head>
 <body>
+    @{ Html.RenderAction("Header");}
+
     <div>
         <ul>
             @Html.DisplayNameFor(S => S.Sid)//to get label name of property

@@ -1,0 +1,7 @@
+﻿
+     @model  IEnumerable<MVCUIDesigning.Models.Customer> 
+<h2>Customer Details</h2>
+ @foreach(var customer in Model)
+    {
+        Html.RenderPartial("_CustomerView", customer);
+}

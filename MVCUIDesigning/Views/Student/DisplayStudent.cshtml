@@ -12,6 +12,11 @@
     <title>@ViewData["Title"]</title> 
 </head>
 <body>
+    @{
+        String strHeader = Html.Partial("_Header").ToString();
+        strHeader = strHeader.Replace("150", "200");
+        strHeader = strHeader.Replace("azure", "aquamarine");
+        MvcHtmlString htmlString = new MvcHtmlString(strHeader); @htmlString }
     <div>
         <h4>Student Details</h4>
         <ul>
